@@ -26,7 +26,7 @@ from itertools import islice
 import mpl_toolkits.mplot3d
 
 
-import Matrix_SIMS_Layout_v2
+import Matrix_SIMS_Layout
 import Figure_std_Layout
 import Figure_Statistics
 import Table_Input_Matrix
@@ -442,7 +442,7 @@ class Figure_Stats_Window(QWidget, Figure_Statistics.Ui_Form):
         self.figStats.savefig(name_save_Fig_Stats, dpi=300, format=None)
 
 
-class Matrix_SIMS_App(QMainWindow, Matrix_SIMS_Layout_v2.Ui_MainWindow):
+class Matrix_SIMS_App(QMainWindow, Matrix_SIMS_Layout.Ui_MainWindow):
     def __init__(self):
         super(self.__class__, self).__init__()
         self.setupUi(self)
