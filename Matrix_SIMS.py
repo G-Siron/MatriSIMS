@@ -719,6 +719,7 @@ class Matrix_SIMS_App(QMainWindow, Matrix_SIMS_Layout.Ui_MainWindow):
         msg_pvalues.setText("One or more coefficient has a low p-value.\nOne or more coefficient is not statistically significant.\nCheck the stats.txt file.")
         msg_pvalues.setWindowTitle("Warning: fit not meaningfull")
         alpha = 0.05
+        polynomial_order == 5
         if Auto_bias_iso_value == 1 and Unknown_data == 1:
             if nb_variables_value == 1:
                 x1_unk = Unknown_section[var1_name]
@@ -822,7 +823,21 @@ class Matrix_SIMS_App(QMainWindow, Matrix_SIMS_Layout.Ui_MainWindow):
             if p_values_a0 >= 0.05 or p_values_a1 >= 0.05 or p_values_a2 >= 0.05 or p_values_a3 >= 0.05 or p_values_a4 >= 0.05:
                 msg_pvalues.exec_()
             else:
-                pass 
+                pass
+        # elif nb_variables_value == 1 and polynomial_order == 5:
+        #     def func(x,b0,b1,b2,b3):
+        #         """ Hill equation, takes:
+        #         x, independant variable,
+        #         4 coefficients (b0, b1, b2, b3)
+        #         return y """
+
+        #         y = b0 + (b1 * np.asarray(x)**b2) / (b3**b2 + np.asarray(x)**b2)
+        #         return y
+
+        #     popt, pcov = optimize.curve_fit(func_hill, xdata=x-std, ydata=IMF_std)
+
+        #     return popt, pcov, fit_std, r_std
+
         elif nb_variables_value == 2 and polynomial_order == 1:
             print(Input)
             print(x1_std)
